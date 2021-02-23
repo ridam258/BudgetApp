@@ -1,0 +1,73 @@
+.left {
+  background-color: #dcdcdc;
+  width: 40%;
+  height: 92.7vh;
+  align-items: center;
+  overflow-y: hidden;
+}
+.right {
+  background-color: #dcdcdc;
+  width: 60%;
+  border-left: 1px solid #666666;
+}
+.logo {
+  font-size: 150%;
+  font-weight: bolder;
+}
+.income {
+  width: 60%;
+}
+.expense {
+  width: 60%;
+}
+.listItem {
+  font-size: 70%;
+}
+.right {
+  overflow-y: scroll;
+  /* display: flex; */
+
+  height: 92.7vh;
+  justify-content: center;
+
+  /* flex: 1; */
+}
+.navbar {
+  background-color: #696969;
+}
+.textarea {
+  max-width: 70%;
+}
+.historyHead {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+body {
+  overflow: hidden;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.input {
+  /* box-shadow: 5px black; */
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 2%);
+}
+.actionTypeIncome {
+  font-weight: bold;
+  color: limegreen;
+  font-size: 1.5rem;
+}
+.actionTypeExpense {
+  font-weight: bold;
+  color: red;
+  font-size: 1.5rem;
+}
+.descriptionPart {
+  /* text-align: center; */
+  font-size: 1rem;
+}
+@media only screen and (max-width: 720 px) {
+}

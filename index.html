@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <title>BudgetApp</title>
+  </head>
+  <body style="overflow: hidden;">
+    <nav class="navbar is-transparent" style="background-color: 	#696969">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <h1 class="logo ml-5" style="color: white;">BudgetApp</h1>
+        </a>
+      </div>
+    </nav>
+    <div id="app">
+      <div class="is-flex">
+        <section
+          class="left is-flex is-justify-content-center is-align-items-center is-flex-direction-column"
+        >
+          
+          <div
+            class="is-flex is-justify-content-space-between m-3"
+            style="width: 70%"
+          >
+            <div class="card is-size-5 incomeCard" style="width: 100%">
+              <footer
+                class="card-footer is-flex is-justify-content-center incomeInner p-4"
+              >
+                <p>₹{{ totalBudget }}</p>
+              </footer>
+            </div>
+          </div>
+          <div
+            class="is-flex is-justify-content-space-between m-3"
+            style="width: 70%"
+          >
+            <div class="card is-size-5 incomeCard" style="width: 100%">
+              <footer
+                class="card-footer is-flex is-justify-content-space-between incomeInner p-4"
+              >
+                <p>Total income:</p>
+                <p>₹{{ totalIncome }}</p>
+              </footer>
+            </div>
+          </div>
+          <div
+            class="is-flex is-justify-content-space-between m-3"
+            style="width: 70%"
+          >
+            <div class="card is-size-5 incomeCard" style="width: 100%">
+              <footer
+                class="card-footer is-flex is-justify-content-space-between incomeInner p-4"
+              >
+                <p>Total expense:</p>
+                <p>₹{{ totalExpenses }}</p>
+              </footer>
+            </div>
+          </div>
+          <div class="input m-5" style="padding: 0%; width: 70%;">
+            <div class="select" style="">
+              <select v-model="dropdownValue">
+                <option value="inc">+</option>
+                <option value="exp">-</option>
+              </select>
+            </div>
+            <input class="input" type="text" v-model="inputValue" />
+          </div>
+          <textarea class="textarea has-fixed-size m-3" placeholder="Add Description" style="max-width: 70%; min-width: 70%;" rows="3" v-model="descriptionValue"></textarea>
+          </textarea>
+          <button class="button" @click="callMethod">{{ buttonLabel }}</button>
+        </section>
+        <section class="right p-5">
+          <h1 class="historyHead">History</h1>
+          <ul>
+            <li v-for="budgetLog in budgetLogs">
+              <div class="card m-5 is-size-2">
+                <footer
+                  class="card-footer  listItem p-4" style="display: block;">
+                  <div class="is-flex is-align-items-center is-justify-content-space-between">
+                    <p class="has-text-weight-bold ">₹{{ budgetLog.actionvalue }}</p>
+                    <p class="actionTypeIncome" v-if="budgetLog.actionType==='inc'">
+                    INC
+                  </p>
+                  <p class="actionTypeExpense" v-else>
+                    EXP
+                  </p>
+                  
+                  </div>
+                  <div class="descriptionPart">
+                    <p class=" has-text-weight-semibold">Description:</p>
+                    <p>{{ budgetLog.descriptionvalue }}</p>
+                  </div> 
+                </footer>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
