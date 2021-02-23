@@ -20,9 +20,9 @@
       </div>
     </nav>
     <div id="app">
-      <div class="is-flex">
+      <div class="columns">
         <section
-          class="left is-flex is-justify-content-center is-align-items-center is-flex-direction-column"
+          class="left column is-two-fifths is-flex is-justify-content-center is-align-items-center is-flex-direction-column"
         >
           
           <div
@@ -70,13 +70,13 @@
                 <option value="exp">-</option>
               </select>
             </div>
-            <input class="input" type="text" v-model="inputValue" />
+            <input class="input" type="number" v-model="inputValue" />
           </div>
           <textarea class="textarea has-fixed-size m-3" placeholder="Add Description" style="max-width: 70%; min-width: 70%;" rows="3" v-model="descriptionValue"></textarea>
           </textarea>
           <button class="button" @click="callMethod">{{ buttonLabel }}</button>
         </section>
-        <section class="right p-5">
+        <section class="right column p-5">
           <h1 class="historyHead">History</h1>
           <ul>
             <li v-for="budgetLog in budgetLogs">

@@ -1,13 +1,13 @@
 .left {
   background-color: #dcdcdc;
-  width: 40%;
+  /* width: 40%; */
   height: 92.7vh;
   align-items: center;
   overflow-y: hidden;
 }
 .right {
   background-color: #dcdcdc;
-  width: 60%;
+  /* width: 60%; */
   border-left: 1px solid #666666;
 }
 .logo {

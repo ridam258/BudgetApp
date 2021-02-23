@@ -30,6 +30,7 @@ const app = Vue.createApp({
             if(this.inputValue){
                 this.addBudgetLog(this.dropdownValue, this.inputValue, this.descriptionValue);
             }
+            this.clearInput()
         },
         calculateTotalBudget(){
             if(this.dropdownValue==="inc"){
@@ -60,6 +61,11 @@ const app = Vue.createApp({
                 descriptionvalue: description,
 
             })
+        },
+        clearInput(){
+            this.dropdownValue= "inc";
+            this.inputValue='';
+            this.descriptionValue=''
         }
     }
 })
