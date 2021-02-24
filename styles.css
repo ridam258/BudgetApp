@@ -1,7 +1,7 @@
 .left {
   background-color: #dcdcdc;
   /* width: 40%; */
-  height: 92.7vh;
+  height: 95.7vh;
   align-items: center;
   overflow-y: hidden;
 }
@@ -27,7 +27,7 @@
   overflow-y: scroll;
   /* display: flex; */
 
-  height: 92.7vh;
+  height: 95.7vh;
   justify-content: center;
 
   /* flex: 1; */
@@ -68,6 +68,4 @@ body {
 .descriptionPart {
   /* text-align: center; */
   font-size: 1rem;
-}
-@media only screen and (max-width: 720 px) {
 }

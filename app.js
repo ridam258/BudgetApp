@@ -24,6 +24,7 @@ const app = Vue.createApp({
         },
     },
     methods: {
+        
         callMethod(){
             this.calculateTotalBudget();
             this.calculateTotalIncome();
@@ -39,15 +40,18 @@ const app = Vue.createApp({
             else if(this.dropdownValue==="exp"){
                 this.totalBudget-=parseFloat(this.inputValue);
             }
+            localStorage.setItem("totalbudget",JSON.stringify(this.totalBudget));
         },
         calculateTotalIncome(){
             console.log('hi');
             
             if(this.dropdownValue==="inc"){
                 this.totalIncome+=parseFloat(this.inputValue);
+                localStorage.setItem("totalincome",JSON.stringify(this.totalIncome))
             }
             else if(this.dropdownValue==="exp"){
                 this.totalExpenses+=parseFloat(this.inputValue);
+                localStorage.setItem("totalexpense",JSON.stringify(this.totalExpenses))
             }
         },
         getValue(e){
@@ -59,15 +63,36 @@ const app = Vue.createApp({
                 actionType:action,
                 actionvalue: value,
                 descriptionvalue: description,
-
             })
+            localStorage.setItem("budgetlog",JSON.stringify(this.budgetLogs))
         },
         clearInput(){
             this.dropdownValue= "inc";
             this.inputValue='';
             this.descriptionValue=''
+        },
+        getLogs(){
+            console.log('hii');
+            
+            var localGet=localStorage.getItem("budgetlog");
+            if(localGet){
+                this.budgetLogs=JSON.parse(localGet);
+            }
+            this.totalBudget=JSON.parse(localStorage.getItem("totalbudget"));
+            this.totalIncome=JSON.parse(localStorage.getItem("totalincome"));
+            this.totalExpenses=JSON.parse(localStorage.getItem("totalexpense"));
+        },
+        clearAll(){
+            localStorage.clear();
+            this.budgetLogs= [];
+            this.totalBudget= 0;
+            this.totalIncome= 0;
+            this.totalExpenses= 0;
         }
-    }
+    },
+    created(){
+        this.getLogs();
+    },
 })
 
 app.mount("#app");

@@ -33,7 +33,8 @@
               <footer
                 class="card-footer is-flex is-justify-content-center incomeInner p-4"
               >
-                <p>₹{{ totalBudget }}</p>
+                <p v-if="totalBudget">₹{{ totalBudget }}</p>
+                <p v-else>₹0</p>
               </footer>
             </div>
           </div>
@@ -46,7 +47,8 @@
                 class="card-footer is-flex is-justify-content-space-between incomeInner p-4"
               >
                 <p>Total income:</p>
-                <p>₹{{ totalIncome }}</p>
+                <p v-if="totalIncome">₹{{ totalIncome }}</p>
+                <p v-else>₹0</p>
               </footer>
             </div>
           </div>
@@ -59,7 +61,8 @@
                 class="card-footer is-flex is-justify-content-space-between incomeInner p-4"
               >
                 <p>Total expense:</p>
-                <p>₹{{ totalExpenses }}</p>
+                <p v-if="totalExpenses">₹{{ totalExpenses }}</p>
+                <p v-else>₹0</p>
               </footer>
             </div>
           </div>
@@ -74,7 +77,8 @@
           </div>
           <textarea class="textarea has-fixed-size m-3" placeholder="Add Description" style="max-width: 70%; min-width: 70%;" rows="3" v-model="descriptionValue"></textarea>
           </textarea>
-          <button class="button" @click="callMethod">{{ buttonLabel }}</button>
+          <button class="button" style="width: 30%;" @click="callMethod">{{ buttonLabel }}</button>
+          <button class="button m-3" style="width: 30%;" @click="clearAll">Clear All</button>
         </section>
         <section class="right column p-5">
           <h1 class="historyHead">History</h1>
@@ -94,7 +98,7 @@
                   
                   </div>
                   <div class="descriptionPart">
-                    <p class=" has-text-weight-semibold">Description:</p>
+                    <p class=" has-text-weight-semibold" v-if="budgetLog.descriptionvalue">Description:</p>
                     <p>{{ budgetLog.descriptionvalue }}</p>
                   </div> 
                 </footer>
