@@ -8,6 +8,7 @@ const app = Vue.createApp({
             dropdownValue: "inc",
             inputValue:'',
             descriptionValue:'',
+            modelOpen:false
         };
     },
     computed:{
@@ -83,11 +84,22 @@ const app = Vue.createApp({
             this.totalExpenses=JSON.parse(localStorage.getItem("totalexpense"));
         },
         clearAll(){
+            
+            document.querySelector(".modal").classList.add("is-active");
+        },
+        clearUP(){
             localStorage.clear();
             this.budgetLogs= [];
             this.totalBudget= 0;
             this.totalIncome= 0;
             this.totalExpenses= 0;
+            this.toggleModal();
+        },
+        noClear(){
+            this.toggleModal()            
+        },
+        toggleModal(){
+            this.modelOpen=!this.modelOpen
         }
     },
     created(){

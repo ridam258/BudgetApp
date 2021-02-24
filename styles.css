@@ -1,18 +1,11 @@
 .left {
   background-color: #dcdcdc;
-  /* width: 40%; */
-  height: 95.7vh;
-  align-items: center;
+  height: 96.1vh;
   overflow-y: hidden;
 }
 .right {
   background-color: #dcdcdc;
-  /* width: 60%; */
   border-left: 1px solid #666666;
-}
-.logo {
-  font-size: 150%;
-  font-weight: bolder;
 }
 .income {
   width: 60%;
@@ -25,12 +18,8 @@
 }
 .right {
   overflow-y: scroll;
-  /* display: flex; */
-
-  height: 95.7vh;
+  height: 96.1vh;
   justify-content: center;
-
-  /* flex: 1; */
 }
 .navbar {
   background-color: #696969;
@@ -39,33 +28,5 @@
   max-width: 70%;
 }
 .historyHead {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
   color: #4a4a4a;
-}
-body {
-  overflow: hidden;
-}
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
-.input {
-  /* box-shadow: 5px black; */
-  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
-    0 0 0 1px rgb(10 10 10 / 2%);
-}
-.actionTypeIncome {
-  font-weight: bold;
-  color: limegreen;
-  font-size: 1.5rem;
-}
-.actionTypeExpense {
-  font-weight: bold;
-  color: red;
-  font-size: 1.5rem;
-}
-.descriptionPart {
-  /* text-align: center; */
-  font-size: 1rem;
 }

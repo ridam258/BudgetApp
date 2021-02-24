@@ -15,7 +15,7 @@
     <nav class="navbar is-transparent" style="background-color: 	#696969">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <h1 class="logo ml-5" style="color: white;">BudgetApp</h1>
+          <h1 class="has-text-weight-bold is-size-4 ml-5" style="color: white;">BudgetApp</h1>
         </a>
       </div>
     </nav>
@@ -33,7 +33,7 @@
               <footer
                 class="card-footer is-flex is-justify-content-center incomeInner p-4"
               >
-                <p v-if="totalBudget">₹{{ totalBudget }}</p>
+                <p :class="{'has-text-success':totalBudget>0 , 'has-text-danger':totalBudget < 0}"  v-if="totalBudget">₹{{ totalBudget }}</p>
                 <p v-else>₹0</p>
               </footer>
             </div>
@@ -67,7 +67,7 @@
             </div>
           </div>
           <div class="input m-5" style="padding: 0%; width: 70%;">
-            <div class="select" style="">
+            <div class="select">
               <select v-model="dropdownValue">
                 <option value="inc">+</option>
                 <option value="exp">-</option>
@@ -78,10 +78,25 @@
           <textarea class="textarea has-fixed-size m-3" placeholder="Add Description" style="max-width: 70%; min-width: 70%;" rows="3" v-model="descriptionValue"></textarea>
           </textarea>
           <button class="button" style="width: 30%;" @click="callMethod">{{ buttonLabel }}</button>
-          <button class="button m-3" style="width: 30%;" @click="clearAll">Clear All</button>
         </section>
         <section class="right column p-5">
-          <h1 class="historyHead">History</h1>
+          <div class="is-flex m-5 is-align-items-center is-justify-content-space-between">
+            <h1 class="historyHead is-size-1 has-text-weight-bold ">History</h1>
+            <button class="button  " @click="toggleModal">Clear All</button>
+            <div class="modal" :class="{'is-active':modelOpen===true}">
+              <div class="modal-background"></div>
+              <div class="modal-content has-background-white p-5">
+                <p class="is-size-5">Are you sure you want to clear all data?</p>
+
+                <div class="is-flex is-justify-content-space-between mt-2">
+                  <button class="button is-danger" @click="clearUP">yes</button>
+                  <button class="button is-link" @click="noClear">no</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
           <ul>
             <li v-for="budgetLog in budgetLogs">
               <div class="card m-5 is-size-2">
@@ -89,15 +104,15 @@
                   class="card-footer  listItem p-4" style="display: block;">
                   <div class="is-flex is-align-items-center is-justify-content-space-between">
                     <p class="has-text-weight-bold ">₹{{ budgetLog.actionvalue }}</p>
-                    <p class="actionTypeIncome" v-if="budgetLog.actionType==='inc'">
+                    <p class="is-size-4 has-text-weight-bold has-text-success" v-if="budgetLog.actionType==='inc'">
                     INC
                   </p>
-                  <p class="actionTypeExpense" v-else>
+                  <p class=" has-text-danger is-size-4 has-text-weight-bold" v-else>
                     EXP
                   </p>
                   
                   </div>
-                  <div class="descriptionPart">
+                  <div class="is-size-6">
                     <p class=" has-text-weight-semibold" v-if="budgetLog.descriptionvalue">Description:</p>
                     <p>{{ budgetLog.descriptionvalue }}</p>
                   </div> 
